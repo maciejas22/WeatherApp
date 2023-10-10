@@ -1,0 +1,165 @@
+﻿<Window x:Class="P04WeatherForecastAPI.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P04WeatherForecastAPI.Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="500">
+    <DockPanel>
+        <StackPanel Width="150" DockPanel.Dock="Left">
+            <Label Content="City:" ></Label>
+            <TextBox x:Name="txtCity"></TextBox>
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"></Button>
+            <ListBox x:Name="lbData" DisplayMemberPath="LocalizedName" SelectionChanged="lbData_SelectionChanged"></ListBox>
+        </StackPanel>
+        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label HorizontalAlignment="Center" FontWeight="Bold" Content="Selected City:"></Label>
+                <Label x:Name="lblCityName" HorizontalAlignment="Center" Content="..."></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  HorizontalAlignment="Center" FontWeight="Bold" Content="Current Temperature:"></Label>
+                <Label x:Name="lblTemperatureValue" HorizontalAlignment="Center" Content=".."></Label>
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Label HorizontalAlignment="Left" FontWeight="Bold" Content="Hourly Forecast:"></Label>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="1h:"></Label>
+                    <Label x:Name="lbl1h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="2h:"></Label>
+                    <Label x:Name="lbl2h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="3h:"></Label>
+                    <Label x:Name="lbl3h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="4h:"></Label>
+                    <Label x:Name="lbl4h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="5h:"></Label>
+                    <Label x:Name="lbl5h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="6h:"></Label>
+                    <Label x:Name="lbl6h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Label HorizontalAlignment="Left" FontWeight="Bold" Content="Historical Hourly Forecast:"></Label>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="-1h:"></Label>
+                    <Label x:Name="lbl_1h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="-2h:"></Label>
+                    <Label x:Name="lbl_2h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="-3h:"></Label>
+                    <Label x:Name="lbl_3h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="-4h:"></Label>
+                    <Label x:Name="lbl_4h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="-5h:"></Label>
+                    <Label x:Name="lbl_5h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="-6h:"></Label>
+                    <Label x:Name="lbl_6h" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Label HorizontalAlignment="Left" FontWeight="Bold" Content="Daily Forecast:"></Label>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="1d:"></Label>
+                    <Label x:Name="lbl1d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="2d:"></Label>
+                    <Label x:Name="lbl2d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="3d:"></Label>
+                    <Label x:Name="lbl3d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="4d:"></Label>
+                    <Label x:Name="lbl4d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="5d:"></Label>
+                    <Label x:Name="lbl5d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Label HorizontalAlignment="Left" FontWeight="Bold" Content="Running Indicies in:"></Label>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="1d:"></Label>
+                    <Label x:Name="lblRun1d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="2d:"></Label>
+                    <Label x:Name="lblRun2d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="3d:"></Label>
+                    <Label x:Name="lblRun3d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="4d:"></Label>
+                    <Label x:Name="lblRun4d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label HorizontalAlignment="Center" Content="5d:"></Label>
+                    <Label x:Name="lblRun5d" HorizontalAlignment="Center" Content="..."></Label>
+                </StackPanel>
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Label HorizontalAlignment="Left" FontWeight="Bold" Content="Location Details:"></Label>
+                <StackPanel Orientation="Horizontal">
+                    <Label HorizontalAlignment="Left" Content="Location Name:"></Label>
+                    <Label x:Name="lblLocationName" HorizontalAlignment="Left" Content="..."></Label>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label HorizontalAlignment="Left" Content="Region Name:"></Label>
+                <Label x:Name="lblRegionName" HorizontalAlignment="Left" Content="..."></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label HorizontalAlignment="Left" Content="Administrative Area Name:"></Label>
+                <Label x:Name="lblAdministrativeAreaName" HorizontalAlignment="Left" Content="..."></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label HorizontalAlignment="Left" Content="Time Zone:"></Label>
+                <Label x:Name="lblTimeZone" HorizontalAlignment="Left" Content="..."></Label>
+            </StackPanel>
+            
+            <Separator/>
+            
+            <Label HorizontalAlignment="Left" FontWeight="Bold" Content="Location Neighbours:"></Label>
+            <ListBox Name="neightboursData" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="100"/>
+        </StackPanel>
+    </DockPanel>
+</Window>
